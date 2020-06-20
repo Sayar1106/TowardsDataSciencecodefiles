@@ -1,7 +1,6 @@
 import numpy as np
 import tqdm
 import itertools
-from sklearn.datasets import load_iris
 import matplotlib.pyplot as plt
 
 
@@ -20,8 +19,8 @@ class Kmeans:
 
     def _cluster_means(self, X, clusters):
         m, n = X.shape[0], X.shape[1]
-        temp = np.zeros((m, n+1))
-        temp[:,:n], temp[:, n] = X, clusters
+        temp = np.zeros((m, n + 1))
+        temp[:, :n], temp[:, n] = X, clusters
         result = np.zeros((self.k, n))
         for i in range(self.k):
             subset = temp[np.where(temp[:, -1] == i), :n]
@@ -54,13 +53,5 @@ class Kmeans:
         self._cluster_ids = new_clusters
 
 
-
 if __name__ == "__main__":
-    data = load_iris()
-    model = Kmeans(k=3)
-    model.fit(data["data"])
-    cluster_ids = model.cluster_ids
-    sepal_height = data["data"][:,0]
-    sepal_width = data["data"][:, 1]
-    plt.scatter(sepal_width, sepal_height, c=cluster_ids)
-    plt.show()
+    pass
