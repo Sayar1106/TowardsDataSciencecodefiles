@@ -21,7 +21,7 @@ class Kmeans:
         m, n = X.shape[0], X.shape[1]
         temp = np.zeros((m, n + 1))
         temp[:, :n], temp[:, n] = X, clusters
-        result = np.zeros((self.k, n))
+        result = np.zeros((self.k, 1))
         for i in range(self.k):
             subset = temp[np.where(temp[:, -1] == i), :n]
             if subset[0].shape[0] > 0:
