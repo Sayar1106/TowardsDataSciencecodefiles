@@ -47,7 +47,6 @@ class Kmeans:
                 if count_changed == 0:
                     break
                 initial_clusters = new_clusters
-                self.means = self._cluster_means(X, initial_clusters)
                 t.set_description(f"changed: {count_changed} / {X.shape[0]}")
 
         self._cluster_ids = new_clusters
