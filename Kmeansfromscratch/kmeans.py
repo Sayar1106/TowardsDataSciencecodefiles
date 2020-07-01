@@ -32,7 +32,7 @@ class Kmeans:
         return result
 
     def _compute_cluster(self, x):
-        return min(range(self.k), key=lambda i: np.linalg.norm(x - self.means[i]))
+        return min(range(self.k), key=lambda i: np.linalg.norm(x - self.means[i])**2)
 
     def fit(self, X, num_iterations=None):
         m = X.shape[0]
